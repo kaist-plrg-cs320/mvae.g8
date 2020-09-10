@@ -1,6 +1,6 @@
 package cs320
 
-object Implementation extends Template with Assignment {
+object Implementation extends Template {
 
   // apply a binary numeric function on all the combinations of numbers from
   // the two input lists, and return the list of all the results
