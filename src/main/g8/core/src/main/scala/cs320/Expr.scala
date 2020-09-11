@@ -4,7 +4,7 @@ import scala.util.parsing.combinator._
 
 sealed trait Expr
 
-case class Num(values: List[BigInt]) extends Expr
+case class Num(values: List[Int]) extends Expr
 case class Add(left: Expr, right: Expr) extends Expr
 case class Sub(left: Expr, right: Expr) extends Expr
 case class Val(name: String, expr: Expr, body: Expr) extends Expr
@@ -17,7 +17,7 @@ object Expr extends RegexParsers {
   def wrapC[T](rule: Parser[T]): Parser[T] = "{" ~> rule <~ "}"
   def wrapR[T](rule: Parser[T]): Parser[T] = "(" ~> rule <~ ")"
 
-  lazy val int: Parser[BigInt] = """-?\d+""".r ^^ BigInt.apply
+  lazy val int: Parser[Int] = """-?\d+""".r ^^ BigInt.apply
 
   val keywords = Set("val", "min", "max")
 

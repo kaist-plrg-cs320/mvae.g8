@@ -1,5 +1,7 @@
 package object cs320 {
 
+  type Int = BigInt
+
   case class PLError(msg: String) extends Exception(msg)
 
   def error(): Nothing = error("")
