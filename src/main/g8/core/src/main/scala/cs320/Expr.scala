@@ -17,7 +17,7 @@ object Expr extends RegexParsers {
   def wrapC[T](rule: Parser[T]): Parser[T] = "{" ~> rule <~ "}"
   def wrapR[T](rule: Parser[T]): Parser[T] = "(" ~> rule <~ ")"
 
-  lazy val int: Parser[Int] = """-?\d+""".r ^^ BigInt.apply
+  lazy val int: Parser[Int] = """-?\d+""".r ^^ (_.toInt)
 
   val keywords = Set("val", "min", "max")
 
